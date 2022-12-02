@@ -24,19 +24,15 @@ def main():
                 headers=headers
             )
 
-            if response == '<Response [200]>':
-                response = 200
-
-            site = i.replace('https://', '')
+            site = i.replace('http://', '')
             print(site, response)
             
         except requests.exceptions.SSLError:
             print("Bad request")
-
-        print(visits)
 
 
 if __name__ == '__main__':
     for i in range(100):
         main()
         visits += 1
+        print(visits)
